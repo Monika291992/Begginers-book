@@ -1,0 +1,132 @@
+
+**Compiler automatically converts methods of Interface as public and abstract, and the data members as public, static and 
+final by default.
+
+Note:
+
+1) Interface cannot be declared as private, protected or transient.
+2) All the interface methods are by default abstract and public.
+3) Variables declared in interface are public, static and final by default.
+4)Interface variables must be initialized at the time of declaration otherwise compiler will throw an error.
+5)An interface can extend any interface but cannot implement it. Class implements interface & interface extends interface.
+6)A class can implement any number of interfaces.
+7)If there are two or more same methods in two interfaces and a class implements both interfaces, 
+implementation of the method once is enough.
+
+Example:
+interface A
+{
+   public void aa();
+}
+interface B
+{
+   public void aa();
+}
+class C implements A,B
+{
+   public void aa()
+   {
+        //Any Code here
+   }
+   public static void main(String args[])
+   {
+        //Statements
+    }
+}
+8)A class cannot implement two interfaces that have methods with same name but different return type.
+
+interface A
+{
+   public void aa();
+}
+interface B
+{
+   public int aa();
+}
+
+class C implements A,B
+{
+
+   public void aa() // error
+   {
+   }
+   public int aa() // error
+   {
+   }
+   public static void main(String args[])
+   {
+
+   }
+}
+9)Variable names conflicts can be resolved by interface name.
+
+interface A
+{
+    int x=10;
+}
+interface B
+{
+    int x=100;
+}
+class H implements A,B
+{
+    public static void Main(String args[])
+    {
+//reference to x is ambiguous both variables are x so we are using interface name to resolve the variable
+       System.out.println(x); 
+       System.out.println(A.x);
+       System.out.println(B.x);
+    }
+}
+
+10)Default Methods:
+In Java 8 version a new feature is added to the interface, which was default method. Default method is a method 
+that can have its body. It means default method is not abstract method, it is used to set some default functionality 
+to the interface.
+
+interface Abc{  
+    // Default method   
+    default void msg(){  
+        System.out.println("This is default method");  
+    }  
+    // Abstract method  
+    void greet(String msg);  
+}  
+
+11)Static methods in Interface – Java 8
+From Java 8, Java allows to declare static methods into interface. The purpose of static method is to add utility 
+methods into the interface.
+
+interface Abc{  
+    // static method   
+    static void msg(){  
+        System.out.println("This is static method");  
+    }  
+    // Abstract method  
+    void greet(String msg);
+    } 
+
+12)Private methods – Java 9
+In Java 9 version, a new feature is added that allows us to declare private methods inside the interface. The purpose of 
+private method is just to share some task between the non-abstract methods of the 
+interface.
+
+interface Abc{  
+    // Default method   
+    default void msg(){  
+         greet();
+    }  
+    // Private method  
+    private void greet() {
+    	System.out.println("This is private method"); 
+    }
+    
+    
+}  
+public class Demo implements Abc{    
+    public static void main(String[] args) {  
+    	Demo d = new Demo();  
+        d.msg();   // calling default method  
+  
+    }  
+} 

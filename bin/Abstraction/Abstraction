@@ -1,0 +1,90 @@
+#ABSTRACTION
+
+#Abstraction can be achieved by 2 ways
+# by Abstract Class(0-100%)
+# by Interface(100%)
+
+Why?
+abstract class allows concrete methods as well, it does not provide 100% abstraction. You can say that it provides partial 
+abstraction. Interfaces used for 100% abstraction because it contains only abstract methods.
+
+#Abstract_Class  
+
+ABSTRACTION DEFINITION:
+It is a process where you show only “relevant” data and “hide” unnecessary details of an object from the user. OR
+Abstraction is a process of hiding the implementation details from the user.
+
+1)ABSTRACT CLASS DECLARATION:
+A class that is declared using an “abstract” keyword is known as abstract class.
+
+2)ABSTRACT CLASS METHOD:
+A class can be said to be abstract class if it has abstract method(without body)
+It can have abstract methods(methods without body) as well as concrete methods (regular methods with body). 
+ Abstract method can never be final and static.
+
+3)ABSTRACT CLASS EXTENDS:
+If regular class extends Abstract class, then regular class must have implementation of all the abstract method of it.
+
+Note 3: If a child does not implement all the abstract methods of the abstract parent class, then the child class 
+must need to be declared abstract as well.
+
+4)ABSTRACT CLASS INTANTIATION: 
+Abstract class cannot be instantiated which means you cannot create the object of it.
+
+Note 2: To use Abstract class,you need to create another class that extends this class and provides the implementation of 
+abstract methods, then you can use the object of that child class to call non-abstract methods of the parent class as well as 
+implemented methods(those that were abstract in parent but implemented in child class).
+
+5)ABSTRACT CLASS OVERIDING: Pending
+Using Abstraction method overiding can be used, 
+Since all the class needs to be extends same method in diff class with no argument , Hence Method Overiding is achieved  
+
+6)ABSTRACT CLASS):A class may contains Concrete & Un-concrete method (with body): Done	
+NOTE: Since abstract class can have Concrete & Un-concrete method, hence 0% abstraction is achieve  
+
+#CONCRETE & UNCONCRETE METHOD: DOne
+Method with its implementation or body is called concrete & Method without body is called Un-concrete method
+
+ACCESS MODIFIER: Done
+We can't use Private access modifier in Abstract class because we need to use the method of same class in any 
+   other class. if we put any method as private then it's can't be used
+
+# Abstract Class Declaration
+
+###############################  
+  // Abstract class
+  public abstract class Car(){
+  }
+###############################
+
+#Abstract Method
+		Method without body(no implementation) is known as abstract method like 
+	
+#####################################
+	public class car{
+  	//Abstract_Method
+	public abstract void color();
+	}
+#####################################
+
+Why we need an abstract class?
+Since the animal sound differs from one animal to another, there is no point to implement this method in parent class. 
+This is because every child class must override this method to give its own implementation details, like Lion class will say 
+“Roar” in this method and Dog class will say “Woof”.
+
+Example: 
+//abstract parent class
+abstract class Animal{
+   //abstract method
+   public abstract void sound();
+}
+//Dog class extends Animal class
+public class Dog extends Animal{
+   public void sound(){
+	System.out.println("Woof");
+   }
+   public static void main(String args[]){
+	Animal obj = new Dog();
+	obj.sound();
+   }
+}
